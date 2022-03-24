@@ -1,20 +1,22 @@
-package com.company;
+package challenge;
 
-public class Main {
+public class CriptografiaCesariana implements Criptografia {
 
-    public static void main(String[] args) {
-        String phrase = "a ligeira raposa marrom saltou sobre o cachorro cansado";
-        System.out.println(cryptography(phrase));
+    @Override
+    public String criptografar(String texto) {
+        String newPhrase = new String("");
+        for(Integer i = 0; i < texto.length(); i += 1) {
+            newPhrase += (char)(texto.charAt(i)+3);
+        }
+
+        return newPhrase;
     }
 
-    static String cryptography(String phrase) {
-        String newPhrase = "";
-        for(Integer i = 0; i < phrase.length(); i += 1) {
-            if(phrase.charAt(i) == " ") {
-                newPhrase += " ";
-            }else{
-                newPhrase += (char)(phrase.charAt(i)+3);
-            }
+    @Override
+    public String descriptografar(String texto) {
+        String newPhrase = new String("");
+        for(Integer i = 0; i < texto.length(); i += 1) {
+            newPhrase += (char)(texto.charAt(i)+1);
         }
 
         return newPhrase;
